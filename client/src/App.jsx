@@ -103,8 +103,8 @@ function App() {
           <Route path="/completed/:status" element = {<Task/>} />
           <Route path="/in-progress/:status" element={<Task/>} />
           <Route path="/todos/:status" element={<Task/>} />
-          <Route path="/users" element={<Users/>} />
-          <Route path="/trash" element={<Trash/>} />
+          <Route path="/user" element={<Users/>} />
+          <Route path="/trashed" element={<Trash/>} />
           <Route path="/task/:id" element={<TaskDetails/>} />
         </Route>
         <Route path="/log-in" element={<Login/>} />

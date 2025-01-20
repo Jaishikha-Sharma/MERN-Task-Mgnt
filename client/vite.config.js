@@ -14,4 +14,7 @@ export default defineConfig({
       },
     },
   },
+  optimizeDeps: {
+    include: ['react-icons'], // Make sure all dependencies are included correctly
+  },
 });
