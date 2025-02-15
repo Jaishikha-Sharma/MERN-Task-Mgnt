@@ -4,9 +4,10 @@ import { useNavigate } from "react-router-dom";
 import Textbox from "../components/Textbox";
 import Button from "../components/Button";
 import { useSelector } from "react-redux";
+import { useLoginMutation } from "../redux/slices/api/authApiSlice";
 
 export default function Login() {
-  const {user} = useSelector((state)=>state.auth);
+  const { user } = useSelector((state) => state.auth);
   const {
     register,
     handleSubmit,
@@ -14,11 +15,19 @@ export default function Login() {
   } = useForm();
 
   const navigate = useNavigate();
+  const [login, { isLoading }] = useLoginMutation();
+
   // for submit
   const submitHandler = async (data) => {
-    console.log("Submit");
+    try {
+      const result = await login(data);
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+      toast.error(error?.data?.message || error.message);
+    }
   };
-console.log(user);
+  console.log(user);
   useEffect(() => {
     user && navigate("/dashboard");
   }, [user]);

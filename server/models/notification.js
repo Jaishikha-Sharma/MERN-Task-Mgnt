@@ -10,7 +10,6 @@ const noticeSchema = new Schema(
   },
   { timestamps: true }
 );
-//test
 
 const Notice = mongoose.model("Notice", noticeSchema);
 
